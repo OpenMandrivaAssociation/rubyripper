@@ -3,7 +3,7 @@ Summary:        A high precision cd ripper
 Version:        0.5.5
 Release:        %mkrel 1
 Url:            http://code.google.com/p/rubyripper/
-License:        GPLv3
+License:        GPLv3+
 Group:          Sound
 BuildRoot:      %{_tmppath}/%{name}-%{version}-build
 Source0:        %{name}-%{version}.tar.bz2
@@ -11,7 +11,9 @@ Requires:	cdparanoia
 Requires:	ruby
 Requires:	libdiscid0
 Requires:	vorbis-tools vorbisgain
+BuildRequires:	cdparanoia
 BuildRequires:  ruby-gettext
+BuildArch:	noarch
 
 Suggests:	rubyripper-gtk
 Suggests:	mp3gain
