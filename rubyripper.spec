@@ -1,19 +1,20 @@
-Name:           rubyripper
-Summary:        A high precision cd ripper
-Version:        0.5.5
-Release:        %mkrel 2
-Url:            http://code.google.com/p/rubyripper/
-License:        GPLv3+
-Group:          Sound
-BuildRoot:      %{_tmppath}/%{name}-%{version}-build
-Source0:        %{name}-%{version}.tar.bz2
+Name:		rubyripper
+Summary:	A high precision cd ripper
+Version:	0.5.5
+Release:	%mkrel 3
+Url:		http://code.google.com/p/rubyripper/
+License:	GPLv3+
+Group:		Sound
+BuildRoot:	%{_tmppath}/%{name}-%{version}-build
+Source0:	%{name}-%{version}.tar.bz2
 Requires:	cdparanoia
 Requires:	ruby
+Requires:	ruby-gettext
 # for cd-discid
 Requires:	abcde
 Requires:	vorbis-tools vorbisgain
 BuildRequires:	cdparanoia
-BuildRequires:  ruby-gettext
+BuildRequires:	ruby-gettext
 BuildArch:	noarch
 
 Suggests:	rubyripper-gtk
@@ -26,10 +27,11 @@ Rubyripper is a digital audio extraction algorithm that uses cdparanoia
 error correcting power and it's own secure ripping algorithm to make
 sure that a CD rip is done successfully and accurately.
 
-%files
+%files -f %{name}.lang
 %defattr(-,root,root)
 %_bindir/rrip_cli
 %{ruby_sitelibdir}/rr_lib.rb
+%doc README
 
 
 #--------------------------------------------------------------------
@@ -53,8 +55,8 @@ GTK2 frontend for rubyripper
 %setup -q
 
 #specify bindir to avoid binaries to be in /usr/usr/bin
-%configure \
---enable-lang=all \
+%configure2_5x \
+--enable-lang=nl,de,fr,hu,ru,es,se \
 --enable-cli \
 --enable-gtk2 \
 --bindir=/bin 
@@ -62,6 +64,9 @@ GTK2 frontend for rubyripper
 %install
 rm -fr %buildroot
 %makeinstall_std
+
+%find_lang %{name}
+chmod -x README
 
 %clean
 rm -rf %buildroot
