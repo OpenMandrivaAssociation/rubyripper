@@ -1,7 +1,7 @@
 Name:		rubyripper
 Summary:	A high precision cd ripper
-Version:	0.5.5
-Release:	%mkrel 3
+Version:	0.5.7
+Release:	%mkrel 1
 Url:		http://code.google.com/p/rubyripper/
 License:	GPLv3+
 Group:		Sound
