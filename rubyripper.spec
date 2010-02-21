@@ -1,12 +1,13 @@
 Name:		rubyripper
 Summary:	A high precision cd ripper
 Version:	0.5.7
-Release:	%mkrel 1
+Release:	%mkrel 2
 Url:		http://code.google.com/p/rubyripper/
 License:	GPLv3+
 Group:		Sound
 BuildRoot:	%{_tmppath}/%{name}-%{version}-build
 Source0:	%{name}-%{version}.tar.bz2
+Patch0:		%{name}-0.5.7-rescue-gtk2.patch
 Requires:	cdparanoia
 Requires:	ruby
 Requires:	ruby-gettext
@@ -53,6 +54,7 @@ GTK2 frontend for rubyripper
 #--------------------------------------------------------------------
 %prep
 %setup -q
+%patch0 -p0
 
 #specify bindir to avoid binaries to be in /usr/usr/bin
 %configure2_5x \
