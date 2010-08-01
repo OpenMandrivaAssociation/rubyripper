@@ -1,27 +1,27 @@
-Name:		rubyripper
-Summary:	A high precision cd ripper
-Version:	0.5.7
-Release:	%mkrel 2
-Url:		http://code.google.com/p/rubyripper/
-License:	GPLv3+
-Group:		Sound
-BuildRoot:	%{_tmppath}/%{name}-%{version}-build
-Source0:	%{name}-%{version}.tar.bz2
-Patch0:		%{name}-0.5.7-rescue-gtk2.patch
-Requires:	cdparanoia
-Requires:	ruby
-Requires:	ruby-gettext
+Name:       rubyripper
+Summary:    A high precision cd ripper
+Version:    0.6.0
+Release:    %mkrel 1
+Url:        http://code.google.com/p/%{name}
+License:    GPLv3+
+Group:      Sound
+BuildRoot:  %{_tmppath}/%{name}-%{version}-build
+Source0:    http://rubyripper.googlecode.com/files/%{name}-%{version}.tar.bz2
+Patch0:     %{name}-0.5.7-rescue-gtk2.patch
+Requires:   cdparanoia
+Requires:   ruby
+Requires:   ruby-gettext
 # for cd-discid
-Requires:	abcde
-Requires:	vorbis-tools vorbisgain
-BuildRequires:	cdparanoia
-BuildRequires:	ruby-gettext
-BuildArch:	noarch
+Requires:   abcde
+Requires:   vorbis-tools vorbisgain
+BuildRequires:  cdparanoia
+BuildRequires:  ruby-gettext
+BuildArch:  noarch
 
-Suggests:	rubyripper-gtk
-Suggests:	mp3gain
-Suggests:	flac
-Suggests:	normalize
+Suggests:   rubyripper-gtk
+Suggests:   mp3gain
+Suggests:   flac
+Suggests:   normalize
 
 %description
 Rubyripper is a digital audio extraction algorithm that uses cdparanoia
@@ -37,10 +37,10 @@ sure that a CD rip is done successfully and accurately.
 
 #--------------------------------------------------------------------
 %package -n rubyripper-gtk
-Summary:	GTK frontend for rubyripper
-Group:		Graphical desktop/GNOME
-Requires:	rubyripper
-Requires:	ruby-gtk2
+Summary:    GTK frontend for rubyripper
+Group:      Graphical desktop/GNOME
+Requires:   rubyripper
+Requires:   ruby-gtk2
 
 %description -n rubyripper-gtk
 GTK2 frontend for rubyripper
@@ -58,7 +58,7 @@ GTK2 frontend for rubyripper
 
 #specify bindir to avoid binaries to be in /usr/usr/bin
 %configure2_5x \
---enable-lang=nl,de,fr,hu,ru,es,se \
+--enable-lang-all \
 --enable-cli \
 --enable-gtk2 \
 --bindir=/bin 
