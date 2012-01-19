@@ -1,11 +1,10 @@
 Name:       rubyripper
 Summary:    A high precision cd ripper
-Version:    0.6.0
-Release:    %mkrel 1
-Url:        http://code.google.com/p/%{name}
+Version:    0.6.2
+Release:    1
+Url:        http://code.google.com/p/rubyripper/
 License:    GPLv3+
 Group:      Sound
-BuildRoot:  %{_tmppath}/%{name}-%{version}-build
 Source0:    http://rubyripper.googlecode.com/files/%{name}-%{version}.tar.bz2
 Patch0:     %{name}-0.5.7-rescue-gtk2.patch
 Requires:   cdparanoia
@@ -28,8 +27,7 @@ Rubyripper is a digital audio extraction algorithm that uses cdparanoia
 error correcting power and it's own secure ripping algorithm to make
 sure that a CD rip is done successfully and accurately.
 
-%files -f %{name}.lang
-%defattr(-,root,root)
+%files
 %_bindir/rrip_cli
 %{ruby_sitelibdir}/rr_lib.rb
 %doc README
@@ -46,7 +44,6 @@ Requires:   ruby-gtk2
 GTK2 frontend for rubyripper
 
 %files -n rubyripper-gtk
-%defattr(-,root,root)
 %_bindir/rrip_gui
 %_iconsdir/hicolor/*/apps/%{name}.png
 %_datadir/applications/%{name}.desktop
@@ -64,12 +61,5 @@ GTK2 frontend for rubyripper
 --bindir=/bin 
 
 %install
-rm -fr %buildroot
 %makeinstall_std
-
-%find_lang %{name}
 chmod -x README
-
-%clean
-rm -rf %buildroot
-
