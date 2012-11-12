@@ -1,0 +1,13 @@
+Index: configure
+===================================================================
+--- configure
++++ configure	2010-02-21 11:47:49.000000000 +0100
+@@ -100,6 +100,8 @@
+ 		puts "ruby-gtk2 bindings found"
+ 	rescue LoadError
+ 		puts "ruby-gtk2 is not found. The graphical frontend won't work!"
++	rescue RuntimeError
++		puts "ruby-gtk2 bindings found, but we can't run it at the moment"
+ 	end
+ 	
+ 	puts "\nTesting support for freedb metadata fetching..."
