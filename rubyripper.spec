@@ -13,6 +13,11 @@ Requires:   rubygem(gettext)
 # for cd-discid
 Requires:   abcde
 Requires:   vorbis-tools vorbisgain
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:  cdparanoia
 BuildRequires:  rubygem(gettext)
 BuildArch:  noarch
